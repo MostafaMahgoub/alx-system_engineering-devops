@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -ap | grep -v '/\.\.$' | sort -df | sed -e 's/^\.\//.\/\n/' -e 's/$/\//' | tr '\n' ',' | sed '1s/^/.\//;2s/^/..\//;$s/,$/\n/' | tr -d '\n'
+ls -1ap | awk '{printf "%s, ", $0}' | sed 's#/\./#./#g' | sed 's#/$#/\n#' | sed 's/,\s*$//' | tr -d '\n'
