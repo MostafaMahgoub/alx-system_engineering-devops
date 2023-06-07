@@ -1,18 +1,2 @@
 #!/bin/bash
-
-src_dir=$(pwd)
-dest_dir=$(dirname ${src_dir})
-
-for file in ${src_dir}/*.html; do
-    if [ -f "${dest_dir}/$(basename ${file})" ]; then
-        if [ "${file}" -nt "${dest_dir}/$(basename ${file})" ]; then
-            cp "${file}" "${dest_dir}"
-            echo "Copied ${file} to ${dest_dir}"
-        else
-            echo "Skipping ${file} because it already exists and is newer in ${dest_dir}"
-        fi
-    else
-        cp "${file}" "${dest_dir}"
-        echo "Copied ${file} to ${dest_dir}"
-    fi
-done
+cp -u *.html ..
