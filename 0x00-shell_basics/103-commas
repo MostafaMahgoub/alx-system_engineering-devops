@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s\n" ./* ../ | sed -e 's/^\.\//.\/,/' -e 's/^\.\.\/$/..\/,/' | paste -sd "," - | sed 's/,/, /g'
+printf "%s\n" ./ ../ | sed -e 's/^\.\//.\/,/' -e 's/^\.\.\/$/..\/,/' | paste -sd "," - | sed 's/,/, /g'
